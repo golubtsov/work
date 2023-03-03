@@ -1,0 +1,102 @@
+$color-hover: #b0b0b0;
+$text-color: white;
+$background: rgba(0, 0, 255, 0.855);
+$font: Arial, "Helvetica Neue", Helvetica, sans-serif;
+
+menu {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $background;
+    font-family: $font;
+
+    .blc-logo {
+        display: flex;
+        width: 200px;
+        justify-content: center;
+        align-items: center;
+        margin: 10px auto;
+
+        .link-logo {
+            color: $text-color;
+            text-decoration: none;
+        }
+    }
+
+    nav {
+        width: 80%;
+        height: 100%;
+        margin: 10px auto;
+
+        .list-links {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            list-style-type: none;
+            margin: auto;
+
+            .item-link {
+                margin: 0 15px;
+                text-align: center;
+
+                .nav-link {
+                    text-decoration: none;
+                    color: $text-color;
+                }
+
+                &:hover .nav-link {
+                    color: $color-hover;
+                }
+            }
+        }
+    }
+
+    .blc-btn-close {
+        width: 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: $text-color;
+        cursor: pointer;
+        margin: 10px auto;
+
+        .line-close {
+            display: block;
+            width: 20px;
+            height: 2px;
+            font-weight: bold;
+            font-size: 23px;
+            margin: 2px;
+            border-radius: 5px;
+            background-color: $text-color;
+        }
+
+        &:hover .line-close {
+            background-color: $color-hover;
+        }
+    }
+}
+
+@media screen and (max-width: 550px) {
+    menu {
+        flex-direction: column;
+
+        nav {
+            margin: auto;
+            display: none;
+
+            .list-links {
+                flex-direction: column;
+                justify-content: center;
+
+                .item-link {
+                    margin: 5px;
+                }
+            }
+        }
+    }
+
+
+}
