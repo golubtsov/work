@@ -1,9 +1,11 @@
 import React from "react";
 
+import './Vacancies.scss';
+
 function Vacancies() {
     return (
-        <div>
-            страница Вакансии
+        <div className="vacans">
+
         </div>
     );
 }
