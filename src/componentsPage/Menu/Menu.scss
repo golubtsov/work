@@ -1,7 +1,7 @@
 $color-hover: #b0b0b0;
 $text-color: white;
 $background: rgba(0, 0, 255, 0.855);
-$font: Arial, "Helvetica Neue", Helvetica, sans-serif;
+$marginElemMenu: 15px auto;
 
 menu {
     width: 100%;
@@ -9,14 +9,14 @@ menu {
     justify-content: center;
     align-items: center;
     background-color: $background;
-    font-family: $font;
+    font-size: 24px;
 
     .blc-logo {
         display: flex;
         width: 200px;
         justify-content: center;
         align-items: center;
-        margin: 10px auto;
+        margin: $marginElemMenu;
 
         .link-logo {
             color: $text-color;
@@ -27,7 +27,7 @@ menu {
     nav {
         width: 80%;
         height: 100%;
-        margin: 10px auto;
+        margin: $marginElemMenu;
         transition: all 0.3s ease-in;
 
         .list-links {
@@ -61,7 +61,7 @@ menu {
         justify-content: center;
         color: $text-color;
         cursor: pointer;
-        margin: 10px auto;
+        margin: $marginElemMenu;
 
         .line-close {
             display: block;
