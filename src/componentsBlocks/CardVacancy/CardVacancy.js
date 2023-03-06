@@ -41,7 +41,7 @@ function CardVacancy(props) {
     return (
         <div className="card-vacanc">
             <div className="blc-title">
-                <Link to="" key={props.info.id} className="link-title">{props.info.name}</Link>
+                <Link to={`/vacancies/${props.info.id}`} className="link-title">{props.info.name}</Link>
                 <span className="blc-logo"><img src={src} className="logo" /></span>
             </div>
             <div className="blc-salary">
@@ -54,7 +54,8 @@ function CardVacancy(props) {
                 <p className="city">{props.info.area.name}</p>
             </div>
             <div className="blc-otlick">
-                <button className="btn-otclick">Смотреть</button>
+                <button className="btn-otclick">
+                    <Link to={`/vacancies/${props.info.id}`} className="link-btn">Смотреть</Link></button>
             </div>
         </div>
     )

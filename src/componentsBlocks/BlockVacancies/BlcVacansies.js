@@ -27,8 +27,7 @@ function Blc_Vacansies() {
             el.name,
             el.area,
             el.salary,
-            el.employer,
-            el.snippet
+            el.employer
         );
         vacancy = new ChechNull().checkNull(vacancy);
         vacancies = [...vacancies, vacancy];
@@ -38,10 +37,7 @@ function Blc_Vacansies() {
     return (
         <div className="blc-vacansies">
             <div className="list-vacancies">
-                {vacancies.map(el =>
-                    // <p>№ - {el.id}</p>
-                    <CardVacancy info={el} key={el.id} />
-                )}
+                {vacancies.map(el => <CardVacancy info={el} key={el.id} />)}
             </div>
         </div>
     );

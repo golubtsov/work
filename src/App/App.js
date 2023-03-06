@@ -7,6 +7,7 @@ import Menu from '../componentsPage/Menu/Menu';
 import Main from '../componentsPage/Main/Main';
 import Vacancies from '../componentsPage/Vacancies/Vacancies';
 import Work from '../componentsPage/Work/Work';
+import Vacancy from '../componentsPage/Vacancy/Vacancy';
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/vacancies" element={<Vacancies />} />
+        <Route path="/vacancies/:id" element={<Vacancy />} />
         <Route path="/works" element={<Work />} />
       </Routes>
     </div>
