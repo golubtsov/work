@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import './WayWork.scss';
 
@@ -12,33 +13,65 @@ function WayWork() {
                 <div className="blc-cards-work">
                     <div className="blc-card-work">
                         <div className="container">
-                            <div className="blc-img-work"></div>
+                            <div className="blc-img-work dev"></div>
                             <div className="blc-link-way">
-                                <a href="#" className="link-way">Разработка игр</a>
+                                <Link to="/works" className="link-way">Web-разработчик</Link>
                             </div>
                         </div>
                     </div>
                     <div className="blc-card-work">
                         <div className="container">
-                            <div className="blc-img-work"></div>
+                            <div className="blc-img-work data"></div>
                             <div className="blc-link-way">
-                                <a href="#" className="link-way">Разработка игр</a>
+                                <Link to="/works" className="link-way">Data Science</Link>
                             </div>
                         </div>
                     </div>
                     <div className="blc-card-work">
                         <div className="container">
-                            <div className="blc-img-work"></div>
+                            <div className="blc-img-work tester"></div>
                             <div className="blc-link-way">
-                                <a href="#" className="link-way">Разработка игр</a>
+                                <Link to="/works" className="link-way">Тестировщик</Link>
                             </div>
                         </div>
                     </div>
                     <div className="blc-card-work">
                         <div className="container">
-                            <div className="blc-img-work"></div>
+                            <div className="blc-img-work dev-game"></div>
                             <div className="blc-link-way">
-                                <a href="#" className="link-way">Разработка игр</a>
+                                <Link to="/works" className="link-way">Разработка игр</Link>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="blc-card-work">
+                        <div className="container">
+                            <div className="blc-img-work sisadmin"></div>
+                            <div className="blc-link-way">
+                                <Link to="/works" className="link-way">Разработка игр</Link>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="blc-card-work">
+                        <div className="container">
+                            <div className="blc-img-work security"></div>
+                            <div className="blc-link-way">
+                                <Link to="/works" className="link-way">Разработка игр</Link>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="blc-card-work">
+                        <div className="container">
+                            <div className="blc-img-work marketer"></div>
+                            <div className="blc-link-way">
+                                <Link to="/works" className="link-way">Разработка игр</Link>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="blc-card-work">
+                        <div className="container">
+                            <div className="blc-img-work analyst"></div>
+                            <div className="blc-link-way">
+                                <Link to="/works" className="link-way">Разработка игр</Link>
                             </div>
                         </div>
                     </div>

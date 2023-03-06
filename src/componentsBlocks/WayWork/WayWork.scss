@@ -4,6 +4,38 @@ $mAuto: 30px auto;
 $background: rgba(0, 0, 255, 0.855);
 $transition: all 0.3s ease-in;
 
+.dev {
+    background: url('./images/developer.png') no-repeat center;
+}
+
+.data {
+    background: url('./images/data_science.png') no-repeat center;
+}
+
+.tester {
+    background: url('./images/tester.png') no-repeat center;
+}
+
+.dev-game {
+    background: url('./images/game_developer.png') no-repeat center;
+}
+
+.sisadmin {
+    background: url('./images/sisadmin.png');
+}
+
+.security {
+    background: url('./images/security.png');
+}
+
+.marketer {
+    background: url('./images/marketer.png');
+}
+
+.analyst {
+    background: url('./images/system_analyst.png');
+}
+
 .blc-way-work {
     width: $widthAll;
 
@@ -29,11 +61,12 @@ $transition: all 0.3s ease-in;
             .blc-card-work {
                 width: 90%;
                 border: 1px solid blue;
-                margin: auto;
+                margin: 20px auto;
                 transition: $transition;
 
                 &:hover {
                     transform: scale(1.05);
+                    border: 1px solid #d600da;
 
                     .blc-link-way {
                         background: linear-gradient(90deg, #c61bff, #c308ed, #d600da);
@@ -48,7 +81,6 @@ $transition: all 0.3s ease-in;
                         width: 100%;
                         display: flex;
                         justify-content: center;
-                        background: url('./images/developer.png') no-repeat center;
                         background-size: cover;
                         height: 300px;
                     }
