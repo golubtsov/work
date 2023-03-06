@@ -1,5 +1,4 @@
 import ChechNull from "./CheckNull";
-// import ClearStr from "./CleasrStr";
 
 class Vacancy {
     constructor(

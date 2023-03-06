@@ -2,7 +2,8 @@
 
 class ClearStr {
     clearStr(str) {
-        let res = str.str.replaceAll('<highlighttext>', '').replaceAll('</highlighttext>', '');
+        let res = str.str.replaceAll('<highlighttext>', '');
+        res = res.replaceAll('</highlighttext>', '');
         return res;
     }
 }

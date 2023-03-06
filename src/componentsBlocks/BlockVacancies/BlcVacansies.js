@@ -3,13 +3,14 @@ import axios from "axios";
 
 import ChechNull from "../../classes/CheckNull";
 
-import './Blc_Vacansies.scss';
+import './BlcVacansies.scss';
 import Vacancy from "../../classes/Vacancy";
+import CardVacancy from "../CardVacancy/CardVacancy";
 
 function Blc_Vacansies() {
 
-    let page = 0;
-    let vacancies = [];
+    let [page, setPage] = useState(0);
+    let [vacancies, setVacancies] = useState([]);
 
     useEffect(() => {
         axios.get(`https://api.hh.ru/vacancies?text=it+Россия&page=${page}`)
@@ -18,7 +19,6 @@ function Blc_Vacansies() {
                     createClassVacancy(e);
                 }
             })
-            .then(() => console.log(vacancies))
     }, []);
 
     function createClassVacancy(el) {
@@ -32,14 +32,16 @@ function Blc_Vacansies() {
         );
         vacancy = new ChechNull().checkNull(vacancy);
         vacancies = [...vacancies, vacancy];
+        setVacancies(vacancies);
     }
 
     return (
         <div className="blc-vacansies">
             <div className="list-vacancies">
-                <div className="card-vacanc">
-
-                </div>
+                {vacancies.map(el =>
+                    // <p>№ - {el.id}</p>
+                    <CardVacancy info={el} key={el.id} />
+                )}
             </div>
         </div>
     );
