@@ -76,6 +76,9 @@ function WayWork() {
                         </div>
                     </div>
                 </div>
+                <div className="blc-title">
+                    <h2 className="title">Вакансии</h2>
+                </div>
             </div>
         </div>
     );

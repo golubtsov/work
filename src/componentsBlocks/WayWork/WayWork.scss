@@ -40,7 +40,7 @@ $transition: all 0.3s ease-in;
     width: $widthAll;
 
     .blc-list-wors {
-        width: 80%;
+        width: 90%;
         margin: $mAuto;
 
         .blc-title {
@@ -101,6 +101,16 @@ $transition: all 0.3s ease-in;
                 }
 
             }
+        }
+    }
+}
+
+@media screen and (max-width: 1350px) {
+    .blc-cards-work {
+        grid-template-columns: repeat(2, 1fr);
+
+        .blc-card-work {
+            width: 80%;
         }
     }
 }
