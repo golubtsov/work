@@ -1,0 +1,5 @@
+class CreateSalary {
+    createSalary(el) {
+
+    }
+}
