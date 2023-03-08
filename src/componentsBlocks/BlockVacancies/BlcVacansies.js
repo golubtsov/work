@@ -7,7 +7,7 @@ import './BlcVacansies.scss';
 import Vacancy from "../../classes/Vacancy";
 import CardVacancy from "../CardVacancy/CardVacancy";
 
-function Blc_Vacansies() {
+function BlcVacansies() {
 
     let [page, setPage] = useState(0);
     let [vacancies, setVacancies] = useState([]);
@@ -43,4 +43,4 @@ function Blc_Vacansies() {
     );
 }
 
-export default Blc_Vacansies;
+export default BlcVacansies;
