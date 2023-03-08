@@ -9,6 +9,7 @@ import './Vacancy.scss';
 function Vacancy() {
 
     let description = React.createRef();
+    let listKeySkills = React.createRef();
     const [infoVacancy, setInfoVacancy] = useState({});
     const [salary, setSalary] = useState('');
 
@@ -30,6 +31,7 @@ function Vacancy() {
                 setInfoVacancy(new ChechNull().checkNull(bigVacancy));
                 createSalary(new ChechNull().checkNull(bigVacancy.salary));
                 description.current.innerHTML = bigVacancy.description;
+                createKeySkills(bigVacancy.key_skills);
             });
     }, []);
 
@@ -54,6 +56,13 @@ function Vacancy() {
             setSalary(res);
         }
     }
+
+    function createKeySkills(list) {
+        for (const el of list) {
+            listKeySkills.current.innerHTML += `<li>${el.name}</li>`;
+        }
+    }
+
     return (
         <div className="container">
             <div className="blc-info">
@@ -79,6 +88,16 @@ function Vacancy() {
                 </div>
                 <div className="blc-description">
                     <div className="description" ref={description}></div>
+                    <div className="key-skills">
+                        <div className="blc-title">
+                            <h3>Ключевые навыки</h3>
+                        </div>
+                        <div className="skills">
+                            <ul className="list-skills" ref={listKeySkills}>
+
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

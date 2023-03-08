@@ -21,14 +21,16 @@
             min-height: 300px;
             font-size: 20px;
 
-            .description {
+            .description,
+            .key-skills {
                 width: 95%;
                 margin: 15px auto;
 
+                h3,
                 p,
                 ul,
                 li {
-                    margin: 12px;
+                    margin: 15px;
                 }
 
                 p {
