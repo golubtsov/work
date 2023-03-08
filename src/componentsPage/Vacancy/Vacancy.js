@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import ChechNull from "../../classes/CheckNull";
 import BigVacancy from "../../classes/BigVacancy";
+import Footer from "../../componentsBlocks/Footer/Footer";
 
 import '../../componentsBlocks/CardVacancy/CardVacancy.scss';
 import './Vacancy.scss';
@@ -64,43 +65,46 @@ function Vacancy() {
     }
 
     return (
-        <div className="container">
-            <div className="blc-info">
-                <div className="card-vacanc">
-                    <div className="blc-title">
-                        <h3>{infoVacancy.name}</h3>
-                        <span className="blc-logo"><img src="https://hhcdn.ru/employer-logo-original/812403.png" className="logo" /></span>
-                    </div>
-                    <div className="blc-salary">
-                        <p className="salary">{salary}</p>
-                    </div>
-                    <div className="blc-employment">
-                        <p className="text-info">Требуемый опыт работы: {infoVacancy.experience}</p>
-                        <p className="text-info">{infoVacancy.employment}</p>
-                        <p className="text-info">{infoVacancy.schedule}</p>
-                    </div>
-                    <div className="blc-employment">
-                        <p className="employment"><b>{infoVacancy.employer}</b></p>
-                    </div>
-                    <div className="blc-otlick">
-                        <button className="btn-otclick">Смотреть</button>
-                    </div>
-                </div>
-                <div className="blc-description">
-                    <div className="description" ref={description}></div>
-                    <div className="key-skills">
+        <>
+            <div className="container">
+                <div className="blc-info">
+                    <div className="card-vacanc">
                         <div className="blc-title">
-                            <h3>Ключевые навыки</h3>
+                            <h3>{infoVacancy.name}</h3>
+                            <span className="blc-logo"><img src="https://hhcdn.ru/employer-logo-original/812403.png" className="logo" /></span>
                         </div>
-                        <div className="skills">
-                            <ul className="list-skills" ref={listKeySkills}>
+                        <div className="blc-salary">
+                            <p className="salary">{salary}</p>
+                        </div>
+                        <div className="blc-employment">
+                            <p className="text-info">Требуемый опыт работы: {infoVacancy.experience}</p>
+                            <p className="text-info">{infoVacancy.employment}</p>
+                            <p className="text-info">{infoVacancy.schedule}</p>
+                        </div>
+                        <div className="blc-employment">
+                            <p className="employment"><b>{infoVacancy.employer}</b></p>
+                        </div>
+                        <div className="blc-otlick">
+                            <button className="btn-otclick">Смотреть</button>
+                        </div>
+                    </div>
+                    <div className="blc-description">
+                        <div className="description" ref={description}></div>
+                        <div className="key-skills">
+                            <div className="blc-title">
+                                <h3>Ключевые навыки</h3>
+                            </div>
+                            <div className="skills">
+                                <ul className="list-skills" ref={listKeySkills}>
 
-                            </ul>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+            <Footer />
+        </>
     );
 }
 
