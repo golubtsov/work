@@ -1,5 +1,46 @@
 footer {
     background-color: rgba(0, 0, 255, 0.855);
     width: 100%;
-    min-height: 300px;
+    // min-height: 300px;
+
+    .container {
+        width: 70%;
+        margin: auto;
+        display: flex;
+        border-bottom: 1px solid white;
+
+        nav {
+            margin: 25px;
+
+            ul {
+                list-style-type: none;
+
+                li {
+                    margin: 12px;
+
+                    &:hover .footer-link {
+                        color: #b0b0b0;
+                    }
+
+                    .footer-link {
+                        font-size: 20px;
+                        text-decoration: none;
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+
+    .copy {
+        width: 70%;
+        margin: auto;
+        color: white;
+
+        .text-copy {
+            text-align: center;
+            font-size: 16px;
+            padding: 20px 0;
+        }
+    }
 }
