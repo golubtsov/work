@@ -11,7 +11,7 @@ function Main() {
         <div className="wrapper">
             <Banner />
             <WayWork />
-            <Blc_Vacansies paramPoisk={'it+Россия'} />
+            <Blc_Vacansies paramPoisk={{ "text": 'it+Россия', "page": 0 }} />
             <Footer />
         </div>
     );
