@@ -9,8 +9,8 @@ export const addPage = createAction('ADD_PAGE');
 export const newQuery = createAction('NEW_QUERY');
 
 export default createReducer(initialState, {
-    [addPage]: function (state) {
-        state.page += 1;
+    [addPage]: function (state, action) {
+        action ? state.page = 0 : state.page += 1;
     },
     [newQuery]: function (state, action) {
         state.query = action.payload;

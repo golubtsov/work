@@ -1,9 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import axios from "axios";
 
-import ChechNull from "../../classes/CheckNull";
-
 import './BlcVacansies.scss';
+import ChechNull from "../../classes/CheckNull";
 import Vacancy from "../../classes/Vacancy";
 import CardVacancy from "../CardVacancy/CardVacancy";
 
@@ -13,7 +12,6 @@ function BlcVacansies(props) {
     let [vacancies, setVacancies] = useState([]);
 
     useEffect(() => {
-        console.log(props);
         axios.get(`https://api.hh.ru/vacancies?text=${props.paramPoisk.text}&page=${props.paramPoisk.page}`)
             .then(res => {
                 for (const e of res.data.items) {

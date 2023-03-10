@@ -1,12 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addPage, newQuery } from "../../redux/reducer";
 
 import "./Menu.scss";
 
 function Menu() {
 
   const nav = React.createRef();
+  const dispath = useDispatch();
 
   function workMenu() {
     if (!nav.current.classList.contains('active')) {
@@ -19,7 +21,6 @@ function Menu() {
         removeMenu();
       }, 0.8);
     }
-    console.log(nav.current.classList.contains('active'));
   }
 
   function getMenu() {
@@ -46,7 +47,7 @@ function Menu() {
       <nav ref={nav}>
         <ul className="list-links">
           <li className="item-link"><Link className="nav-link" to='/'>Главная</Link ></li>
-          <li className="item-link"><Link className="nav-link" to='/vacancies'>Вакансии</Link ></li>
+          <li className="item-link"><Link className="nav-link" to='/vacancies' onClick={dispath(newQuery('IT+Россия'))}>Вакансии</Link ></li>
           <li className="item-link"><Link className="nav-link" to='/works'>Направления</Link ></li>
         </ul>
       </nav>

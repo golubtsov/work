@@ -1,23 +1,26 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addPage, newQuery } from "../../redux/reducer";
+
+import './Vacancies.scss';
 import BlcVacansies from "../../componentsBlocks/BlockVacancies/BlcVacansies";
 import Footer from "../../componentsBlocks/Footer/Footer";
 
-import './Vacancies.scss';
-
 function Vacancies() {
 
+    const dispath = useDispatch();
     const intText = React.createRef();
-    let [query, setQuery] = useState('it+Россия');
-    let [page, setPage] = useState(0);
+    let page = useSelector((state) => state.toolkit.page);
+    let query = useSelector((state) => state.toolkit.query);
 
-    useEffect(() => {
-        console.log(query);
-    }, [query, page]);
+    // useEffect(() => {
+    //     console.log(query);
+    // }, [query, page]);
 
     function getQueryPoisk() {
-        query = intText.current.value;
-        setQuery(query);
-        console.log(query);
+        let poisk = intText.current.value;
+        dispath(addPage())
+        dispath(newQuery(poisk));
         intText.current.value = '';
     }
 
