@@ -1,19 +1,24 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 
 import './BlcVacansies.scss';
 import ChechNull from "../../classes/CheckNull";
 import Vacancy from "../../classes/Vacancy";
 import CardVacancy from "../CardVacancy/CardVacancy";
+import Pagination from "../Pagination/Pagination";
+import { pagesLength } from "../../redux/reducer";
 
 function BlcVacansies(props) {
 
     const listVacancies = React.createRef();
+    const dispatch = useDispatch();
     let [vacancies, setVacancies] = useState([]);
 
     useEffect(() => {
         axios.get(`https://api.hh.ru/vacancies?text=${props.paramPoisk.text}&page=${props.paramPoisk.page}`)
             .then(res => {
+                dispatch(pagesLength(res.data.pages));
                 for (const e of res.data.items) {
                     listVacancies.current.innerHTML = '';
                     createClassVacancy(e);
@@ -39,6 +44,7 @@ function BlcVacansies(props) {
             <div className="list-vacancies" ref={listVacancies}>
                 {vacancies.map(el => <CardVacancy info={el} key={el.id} />)}
             </div>
+            <Pagination />
         </div>
     );
 }

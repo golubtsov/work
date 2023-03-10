@@ -1,6 +1,5 @@
 import React from "react";
 import { useSelector } from "react-redux";
-
 import '../Main/Main.scss';
 import Banner from "../../componentsBlocks/Banner/Banner";
 import Blc_Vacansies from "../../componentsBlocks/BlockVacancies/BlcVacansies";

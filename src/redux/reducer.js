@@ -1,18 +1,35 @@
 import { createAction, createReducer } from "@reduxjs/toolkit"
 
 const initialState = {
+    maxPage: 0,
     page: 0,
     query: 'IT+Россия'
 }
 
+export const pagesLength = createAction('MAX_PAGE');
 export const addPage = createAction('ADD_PAGE');
 export const newQuery = createAction('NEW_QUERY');
+export const decrementPage = createAction('DECREMENT_PAGE');
+export const incrementPage = createAction('INCREMENT_PAGE');
 
 export default createReducer(initialState, {
     [addPage]: function (state, action) {
-        action ? state.page = 0 : state.page += 1;
+        state.page = action.payload;
     },
     [newQuery]: function (state, action) {
         state.query = action.payload;
+    },
+    [decrementPage]: function (state) {
+        if (state.page != 0) {
+            state.page -= 1;
+        }
+    },
+    [incrementPage]: function (state) {
+        if (state.page != state.maxPage) {
+            state.page += 1;
+        }
+    },
+    [pagesLength]: function (state, action) {
+        state.maxPage = action.payload;
     }
 });

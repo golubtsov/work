@@ -5,6 +5,7 @@ import { addPage, newQuery } from "../../redux/reducer";
 import './Vacancies.scss';
 import BlcVacansies from "../../componentsBlocks/BlockVacancies/BlcVacansies";
 import Footer from "../../componentsBlocks/Footer/Footer";
+import Pagination from "../../componentsBlocks/Pagination/Pagination";
 
 function Vacancies() {
 
@@ -13,9 +14,7 @@ function Vacancies() {
     let page = useSelector((state) => state.toolkit.page);
     let query = useSelector((state) => state.toolkit.query);
 
-    // useEffect(() => {
-    //     console.log(query);
-    // }, [query, page]);
+    useEffect(() => { }, [query, page]);
 
     function getQueryPoisk() {
         let poisk = intText.current.value;
@@ -40,6 +39,7 @@ function Vacancies() {
             </div>
             <>
                 <BlcVacansies paramPoisk={{ "text": query, "page": page }} />
+                <Pagination />
             </>
             <Footer />
         </div>
