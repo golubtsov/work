@@ -5,7 +5,6 @@ import { addPage, newQuery } from "../../redux/reducer";
 import './Vacancies.scss';
 import BlcVacansies from "../../componentsBlocks/BlockVacancies/BlcVacansies";
 import Footer from "../../componentsBlocks/Footer/Footer";
-import Pagination from "../../componentsBlocks/Pagination/Pagination";
 
 function Vacancies() {
 
@@ -39,7 +38,6 @@ function Vacancies() {
             </div>
             <>
                 <BlcVacansies paramPoisk={{ "text": query, "page": page }} />
-                <Pagination />
             </>
             <Footer />
         </div>

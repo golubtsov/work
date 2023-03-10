@@ -9,14 +9,16 @@ import CardVacancy from "../CardVacancy/CardVacancy";
 import Pagination from "../Pagination/Pagination";
 import { pagesLength } from "../../redux/reducer";
 
-function BlcVacansies(props) {
+function BlcVacansies() {
 
     const listVacancies = React.createRef();
     const dispatch = useDispatch();
+    let page = useSelector((state) => state.toolkit.page);
+    let query = useSelector((state) => state.toolkit.query);
     let [vacancies, setVacancies] = useState([]);
 
     useEffect(() => {
-        axios.get(`https://api.hh.ru/vacancies?text=${props.paramPoisk.text}&page=${props.paramPoisk.page}`)
+        axios.get(`https://api.hh.ru/vacancies?text=${query}&page=${page}`)
             .then(res => {
                 dispatch(pagesLength(res.data.pages));
                 for (const e of res.data.items) {
@@ -24,7 +26,7 @@ function BlcVacansies(props) {
                     createClassVacancy(e);
                 }
             })
-    }, [props.paramPoisk.text, props.paramPoisk.page]);
+    }, [page, query]);
 
     function createClassVacancy(el) {
         let vacancy = new Vacancy(
@@ -40,12 +42,14 @@ function BlcVacansies(props) {
     }
 
     return (
-        <div className="blc-vacansies">
-            <div className="list-vacancies" ref={listVacancies}>
-                {vacancies.map(el => <CardVacancy info={el} key={el.id} />)}
+        <>
+            <div className="blc-vacansies">
+                <div className="list-vacancies" ref={listVacancies}>
+                    {vacancies.map(el => <CardVacancy info={el} key={el.id} />)}
+                </div>
             </div>
             <Pagination />
-        </div>
+        </>
     );
 }
 
