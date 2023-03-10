@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { scrollTop } from "../../functions/scrollTop";
 
 import './CardVacancy.scss';
 
@@ -41,7 +42,7 @@ function CardVacancy(props) {
     return (
         <div className="card-vacanc">
             <div className="blc-title">
-                <Link to={`/vacancies/${props.info.id}`} className="link-title">{props.info.name}</Link>
+                <Link to={`/vacancies/${props.info.id}`} className="link-title" onClick={scrollTop}>{props.info.name}</Link>
                 <span className="blc-logo"><img src={src} className="logo" /></span>
             </div>
             <div className="blc-salary">

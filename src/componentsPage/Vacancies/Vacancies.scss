@@ -10,6 +10,7 @@
 
     .poisk {
         margin: 20px auto;
+        display: flex;
 
         input {
             width: 300px;
@@ -29,6 +30,15 @@
             color: white;
             cursor: pointer;
             border-radius: 3px;
+        }
+
+        .blc-param-poisk {
+            width: 40px;
+            height: 40px;
+            background: url('./imgParamPoisk/param-poisk.png') no-repeat;
+            background-size: cover;
+            cursor: pointer;
+            margin: 0 5px;
         }
     }
 }

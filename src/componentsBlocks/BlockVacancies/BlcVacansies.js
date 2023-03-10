@@ -20,10 +20,14 @@ function BlcVacansies() {
     useEffect(() => {
         axios.get(`https://api.hh.ru/vacancies?text=${query}&page=${page}`)
             .then(res => {
-                dispatch(pagesLength(res.data.pages));
-                for (const e of res.data.items) {
-                    listVacancies.current.innerHTML = '';
-                    createClassVacancy(e);
+                if (!checkAnswerServer(res.data.items)) {
+                    dispatch(pagesLength(res.data.pages));
+                    for (const e of res.data.items) {
+                        listVacancies.current.innerHTML = '';
+                        createClassVacancy(e);
+                    }
+                } else {
+                    alert('По вашему запросу ничего не найдено');
                 }
             })
     }, [page, query]);
@@ -39,6 +43,10 @@ function BlcVacansies() {
         vacancy = new ChechNull().checkNull(vacancy);
         vacancies = [...vacancies, vacancy];
         setVacancies(vacancies);
+    }
+
+    function checkAnswerServer(answer) {
+        if (answer.length === 0) return true;
     }
 
     return (

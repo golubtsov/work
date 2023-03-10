@@ -17,7 +17,7 @@ function Vacancies() {
 
     function getQueryPoisk() {
         let poisk = intText.current.value;
-        dispath(addPage())
+        if (poisk === '') poisk = 'IT+Россия';
         dispath(newQuery(poisk));
         intText.current.value = '';
     }
@@ -34,6 +34,7 @@ function Vacancies() {
                 <div className="poisk">
                     <input onKeyDown={keyEnter} type="text" ref={intText} placeholder="Профессия, должность" />
                     <button onClick={getQueryPoisk} className='btn-poisk'>Найти</button>
+                    <div className="blc-param-poisk"></div>
                 </div>
             </div>
             <>

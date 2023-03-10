@@ -1,8 +1,6 @@
 import { createAction, createReducer } from "@reduxjs/toolkit"
 
 const initialState = {
-    from: 0,
-    limitPages: 10,
     maxPage: 0,
     page: 0,
     query: 'IT+Россия'
@@ -27,10 +25,6 @@ export default createReducer(initialState, {
         }
     },
     [incrementPage]: function (state) {
-        if (state.page == state.limitPages - 1) {
-            state.from += 10
-            state.limitPages += 10;
-        }
         if (state.page != state.maxPage - 1) {
             state.page += 1;
         }
