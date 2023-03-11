@@ -1,0 +1,1 @@
+export const whiteBacground = 'https://static.tildacdn.com/tild6632-6464-4730-b737-383262636636/-/resize/504x/1620215065_3-phonote.jpg';

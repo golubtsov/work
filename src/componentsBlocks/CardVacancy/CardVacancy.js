@@ -1,17 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { scrollTop } from "../../functions/scrollTop";
+import CheckLogo from "../../classes/CheckLogo";
+import { whiteBacground } from "../../consts/consts";
 
 import './CardVacancy.scss';
 
 function CardVacancy(props) {
 
     const [salary, setSalary] = useState('');
-    const [src, setSrc] = useState(``);
+    const [src, setSrc] = useState(whiteBacground);
 
     useEffect(() => {
         createSalary(props.info.salary);
-        logo(props.info.employer.logo_urls['240']);
+        if (!CheckLogo.prototype.checkLogo(props.info.employer.logo_urls['240'])) {
+            setSrc(props.info.employer.logo_urls['240']);
+        }
     });
 
     function createSalary(el) {
@@ -28,14 +32,6 @@ function CardVacancy(props) {
         } else if (el.to === 'Не указано') {
             let res = `от ${el.from} руб.`;
             setSalary(res);
-        }
-    }
-
-    function logo(src) {
-        if (src === 'Не указано') {
-            setSrc('');
-        } else {
-            setSrc(src);
         }
     }
 

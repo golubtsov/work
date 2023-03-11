@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { newQuery } from "../../redux/reducer";
-
-import './Vacancies.scss';
 import BlcVacansies from "../../componentsBlocks/BlockVacancies/BlcVacansies";
 import Footer from "../../componentsBlocks/Footer/Footer";
+
+import './Vacancies.scss';
 
 function Vacancies() {
 

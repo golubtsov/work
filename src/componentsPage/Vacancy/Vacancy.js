@@ -3,6 +3,8 @@ import axios from "axios";
 import ChechNull from "../../classes/CheckNull";
 import BigVacancy from "../../classes/BigVacancy";
 import Footer from "../../componentsBlocks/Footer/Footer";
+import CheckLogo from "../../classes/CheckLogo";
+import { whiteBacground } from "../../consts/consts";
 
 import '../../componentsBlocks/CardVacancy/CardVacancy.scss';
 import './Vacancy.scss';
@@ -13,10 +15,12 @@ function Vacancy() {
     let listKeySkills = React.createRef();
     const [infoVacancy, setInfoVacancy] = useState({});
     const [salary, setSalary] = useState('');
+    const [src, setSrc] = useState(whiteBacground);
 
     useEffect(() => {
         axios.get(`https://api.hh.ru/vacancies/${getIdVacancy()}`)
             .then(res => {
+                console.log();
                 let bigVacancy = new BigVacancy(
                     res.data.id,
                     res.data.name,
@@ -33,6 +37,9 @@ function Vacancy() {
                 createSalary(new ChechNull().checkNull(bigVacancy.salary));
                 description.current.innerHTML = bigVacancy.description;
                 createKeySkills(bigVacancy.key_skills);
+                if (!CheckLogo.prototype.checkLogo(res.data.employer.logo_urls)) {
+                    setSrc(res.data.employer.logo_urls['240']);
+                }
             });
     }, []);
 
@@ -71,7 +78,7 @@ function Vacancy() {
                     <div className="card-vacanc">
                         <div className="blc-title">
                             <h3>{infoVacancy.name}</h3>
-                            <span className="blc-logo"><img src="https://hhcdn.ru/employer-logo-original/812403.png" className="logo" /></span>
+                            <span className="blc-logo"><img src={src} className="logo" /></span>
                         </div>
                         <div className="blc-salary">
                             <p className="salary">{salary}</p>
