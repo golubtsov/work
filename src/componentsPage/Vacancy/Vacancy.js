@@ -8,6 +8,7 @@ import { whiteBacground } from "../../consts/consts";
 
 import '../../componentsBlocks/CardVacancy/CardVacancy.scss';
 import './Vacancy.scss';
+import { Link } from "react-router-dom";
 
 function Vacancy() {
 
@@ -89,7 +90,7 @@ function Vacancy() {
                             <p className="text-info">{infoVacancy.schedule}</p>
                         </div>
                         <div className="blc-employment">
-                            <p className="employment"><b>{infoVacancy.employer}</b></p>
+                            <p className="employment"><Link><b>{infoVacancy.employer}</b></Link></p>
                         </div>
                         <div className="blc-otlick">
                             <button className="btn-otclick">Смотреть</button>
