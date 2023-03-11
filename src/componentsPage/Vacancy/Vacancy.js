@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import ChechNull from "../../classes/CheckNull";
 import BigVacancy from "../../classes/BigVacancy";
@@ -6,23 +6,24 @@ import Footer from "../../componentsBlocks/Footer/Footer";
 import Employer from "../Employer/Employer";
 import CheckLogo from "../../classes/CheckLogo";
 import { whiteBacground } from "../../consts/consts";
+import { setDisplay } from "../../redux/reducer";
+import { useDispatch, useSelector } from "react-redux";
 
 import '../../componentsBlocks/CardVacancy/CardVacancy.scss';
 import './Vacancy.scss';
-import { Link } from "react-router-dom";
 
 function Vacancy() {
 
-    let description = React.createRef();
-    let listKeySkills = React.createRef();
+    const description = React.createRef();
+    const listKeySkills = React.createRef();
     const [infoVacancy, setInfoVacancy] = useState({});
     const [salary, setSalary] = useState('');
     const [src, setSrc] = useState(whiteBacground);
+    const dispatch = useDispatch();
 
     useEffect(() => {
         axios.get(`https://api.hh.ru/vacancies/${getIdVacancy()}`)
             .then(res => {
-                console.log();
                 let bigVacancy = new BigVacancy(
                     res.data.id,
                     res.data.name,
@@ -73,6 +74,10 @@ function Vacancy() {
         }
     }
 
+    function getInfoEmployer() {
+
+    }
+
     return (
         <>
             <div className="container">
@@ -91,7 +96,7 @@ function Vacancy() {
                             <p className="text-info">{infoVacancy.schedule}</p>
                         </div>
                         <div className="blc-employment">
-                            <p className="employer"><b>{infoVacancy.employer}</b></p>
+                            <p className="employer"><b onClick={() => dispatch(setDisplay('flex'))}>{infoVacancy.employer}</b></p>
                         </div>
                         <div className="blc-otlick">
                             <button className="btn-otclick">Смотреть</button>
