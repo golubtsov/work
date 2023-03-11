@@ -13,6 +13,14 @@
             .text-info {
                 margin: 5px 0;
             }
+
+            .employer b {
+                cursor: pointer;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
         }
 
         .blc-description {

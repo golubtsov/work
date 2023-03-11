@@ -3,6 +3,7 @@ import axios from "axios";
 import ChechNull from "../../classes/CheckNull";
 import BigVacancy from "../../classes/BigVacancy";
 import Footer from "../../componentsBlocks/Footer/Footer";
+import Employer from "../Employer/Employer";
 import CheckLogo from "../../classes/CheckLogo";
 import { whiteBacground } from "../../consts/consts";
 
@@ -90,7 +91,7 @@ function Vacancy() {
                             <p className="text-info">{infoVacancy.schedule}</p>
                         </div>
                         <div className="blc-employment">
-                            <p className="employment"><Link><b>{infoVacancy.employer}</b></Link></p>
+                            <p className="employer"><b>{infoVacancy.employer}</b></p>
                         </div>
                         <div className="blc-otlick">
                             <button className="btn-otclick">Смотреть</button>
@@ -112,6 +113,7 @@ function Vacancy() {
                 </div>
             </div>
             <Footer />
+            <Employer />
         </>
     );
 }

@@ -1,0 +1,37 @@
+.popup-employer {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(198, 198, 198, 0.693);
+    position: fixed;
+    top: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+    .close {
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+
+        .btn-close {
+            width: 100px;
+            height: 100%;
+            background: url('./icon/close.png') no-repeat;
+            cursor: pointer;
+
+            &:hover {
+                background: url('./icon/redClose.png') no-repeat;
+            }
+        }
+    }
+
+    .window-popup {
+        width: 500px;
+        height: 350px;
+        background-color: white;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.193);
+
+    }
+}
