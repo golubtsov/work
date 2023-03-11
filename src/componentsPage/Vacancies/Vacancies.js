@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addPage, newQuery } from "../../redux/reducer";
+import { newQuery } from "../../redux/reducer";
 
 import './Vacancies.scss';
 import BlcVacansies from "../../componentsBlocks/BlockVacancies/BlcVacansies";
@@ -17,8 +17,11 @@ function Vacancies() {
 
     function getQueryPoisk() {
         let poisk = intText.current.value;
-        if (poisk === '') poisk = 'IT+Россия';
-        dispath(newQuery(poisk));
+        if (poisk == '') {
+            alert('Пустой запрос');
+        } else {
+            dispath(newQuery(poisk));
+        }
         intText.current.value = '';
     }
 
