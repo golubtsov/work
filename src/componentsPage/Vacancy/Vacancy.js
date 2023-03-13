@@ -7,7 +7,7 @@ import Employer from "../Employer/Employer";
 import CheckLogo from "../../classes/CheckLogo";
 import { whiteBacground } from "../../consts/consts";
 import { setDisplay } from "../../redux/reducer";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import '../../componentsBlocks/CardVacancy/CardVacancy.scss';
 import './Vacancy.scss';
@@ -24,25 +24,7 @@ function Vacancy() {
     useEffect(() => {
         axios.get(`https://api.hh.ru/vacancies/${getIdVacancy()}`)
             .then(res => {
-                let bigVacancy = new BigVacancy(
-                    res.data.id,
-                    res.data.name,
-                    res.data.area,
-                    res.data.salary,
-                    res.data.employer.name,
-                    res.data.experience.name,
-                    res.data.schedule.name,
-                    res.data.employment.name,
-                    res.data.description,
-                    res.data.key_skills
-                );
-                setInfoVacancy(new ChechNull().checkNull(bigVacancy));
-                createSalary(new ChechNull().checkNull(bigVacancy.salary));
-                description.current.innerHTML = bigVacancy.description;
-                createKeySkills(bigVacancy.key_skills);
-                if (!CheckLogo.prototype.checkLogo(res.data.employer.logo_urls)) {
-                    setSrc(res.data.employer.logo_urls['240']);
-                }
+                createInfoVacancy(res.data);
             });
     }, []);
 
@@ -74,8 +56,37 @@ function Vacancy() {
         }
     }
 
-    function getInfoEmployer() {
+    function checkAddressRaw(address) {
+        console.log(address)
+        if (address === 'Не укахано' || address == null) {
+            return '';
+        }
+        return address.raw;
+    }
 
+    function createInfoVacancy(info) {
+        let bigVacancy = new BigVacancy(
+            info.id,
+            info.name,
+            info.area,
+            info.salary,
+            info.employer.name,
+            info.experience.name,
+            info.schedule.name,
+            info.employment.name,
+            info.description,
+            info.key_skills,
+            checkAddressRaw(info.address),
+            info.employer.id
+        );
+        setInfoVacancy(new ChechNull().checkNull(bigVacancy));
+        createSalary(new ChechNull().checkNull(bigVacancy.salary));
+        description.current.innerHTML = bigVacancy.description;
+        createKeySkills(bigVacancy.key_skills);
+        if (!CheckLogo.prototype.checkLogo(info.employer.logo_urls)) {
+            setSrc(info.employer.logo_urls['240']);
+        }
+        console.log(bigVacancy)
     }
 
     return (
@@ -87,19 +98,22 @@ function Vacancy() {
                             <h3>{infoVacancy.name}</h3>
                             <span className="blc-logo"><img src={src} className="logo" /></span>
                         </div>
-                        <div className="blc-salary">
+                        <div className="blc-wrapper">
                             <p className="salary">{salary}</p>
                         </div>
-                        <div className="blc-employment">
+                        <div className="blc-wrapper">
                             <p className="text-info">Требуемый опыт работы: {infoVacancy.experience}</p>
                             <p className="text-info">{infoVacancy.employment}</p>
                             <p className="text-info">{infoVacancy.schedule}</p>
                         </div>
-                        <div className="blc-employment">
-                            <p className="employer"><b onClick={() => dispatch(setDisplay('flex'))}>{infoVacancy.employer}</b></p>
+                        <div className="blc-wrapper">
+                            <p className="employer" onClick={() => { dispatch(setDisplay('flex')) }}><b>{infoVacancy.employer}</b></p>
+                        </div>
+                        <div className="blc-wrapper">
+                            <p className="employer">Адресс: <a href={`https://www.google.ru/maps/place/${infoVacancy.address}`} target="_blank"><b>{infoVacancy.address}</b></a></p>
                         </div>
                         <div className="blc-otlick">
-                            <button className="btn-otclick">Смотреть</button>
+                            <button className="btn-otclick"><a href={`https://hh.ru/vacancy/${infoVacancy.id}`} target="_blank" rel="noopener noreferrer">Откликнуться</a></button>
                         </div>
                     </div>
                     <div className="blc-description">
@@ -118,7 +132,7 @@ function Vacancy() {
                 </div>
             </div>
             <Footer />
-            <Employer />
+            <Employer id={infoVacancy.employerId} />
         </>
     );
 }

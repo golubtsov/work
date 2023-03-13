@@ -8,6 +8,7 @@ import Main from '../componentsPage/Main/Main';
 import Vacancies from '../componentsPage/Vacancies/Vacancies';
 import Work from '../componentsPage/Work/Work';
 import Vacancy from '../componentsPage/Vacancy/Vacancy';
+import Employer from '../componentsPage/Employer/Employer';
 
 
 function App() {

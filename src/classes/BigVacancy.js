@@ -12,7 +12,9 @@ class BigVacancy extends Vacancy {
         schedule,
         employment,
         description,
-        key_skills
+        key_skills,
+        address,
+        employerId
     ) {
         super(
             id,
@@ -25,7 +27,9 @@ class BigVacancy extends Vacancy {
             this.schedule = schedule,
             this.employment = new ChechNull().checkNull(employment),
             this.description = new ChechNull().checkNull(description),
-            this.key_skills = new ChechNull().checkNull(key_skills)
+            this.key_skills = new ChechNull().checkNull(key_skills),
+            this.address = new ChechNull().checkNull(address),
+            this.employerId = new ChechNull().checkNull(employerId)
     }
 }
 

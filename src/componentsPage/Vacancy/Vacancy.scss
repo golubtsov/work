@@ -21,6 +21,28 @@
                     text-decoration: underline;
                 }
             }
+
+            .btn-otclick {
+                & a:hover {
+                    color: white;
+                }
+
+                a {
+                    color: #4bb24e;
+                    text-decoration: none;
+                }
+            }
+        }
+
+        .blc-wrapper {
+            width: 95%;
+            margin: 8px auto;
+
+            Link,
+            a {
+                text-decoration: none;
+                color: #555555
+            }
         }
 
         .blc-description {

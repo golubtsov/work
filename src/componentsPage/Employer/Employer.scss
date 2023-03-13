@@ -4,9 +4,10 @@
     background-color: rgba(198, 198, 198, 0.693);
     position: fixed;
     top: 0;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
 
     .close {
         width: 50px;
@@ -28,10 +29,36 @@
     }
 
     .window-popup {
-        width: 500px;
-        height: 350px;
+        width: 60%;
+        max-height: 800px;
         background-color: white;
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.193);
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.555);
+        border-radius: 10px;
+        overflow-y: scroll;
 
+        .container {
+            width: 85%;
+            margin: 20px auto;
+            margin-bottom: 30px;
+
+            .title {
+                text-align: center;
+                margin: 10px 0;
+            }
+
+            .description {
+
+                p,
+                li,
+                #text {
+                    margin: 8px;
+                    line-height: 1.7;
+                }
+
+                strong {
+                    line-height: 1.7;
+                }
+            }
+        }
     }
 }

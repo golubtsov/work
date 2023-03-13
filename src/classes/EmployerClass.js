@@ -1,9 +1,9 @@
 import ChechNull from "./CheckNull";
 
 export default class EmployerClass {
-    constructor(id, address, description) {
+    constructor(id, name, description) {
         this.id = id,
-            this.address = ChechNull.prototype.checkNull(address),
+            this.name = name,
             this.description = ChechNull.prototype.checkNull(description)
     }
 }

@@ -1,6 +1,6 @@
 class ChechNull {
     checkNull(param) {
-        if (param !== 'null') {
+        if (param !== null) {
             for (const key in param) {
                 if (param[key] == null) {
                     param[key] = 'Не указано';
