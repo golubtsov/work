@@ -20,6 +20,7 @@ function App() {
         <Route path="/vacancies" element={<Vacancies />} />
         <Route path="/vacancies/:id" element={<Vacancy />} />
         <Route path="/works" element={<Work />} />
+        <Route path="/works/:name" element={<Work />} />
       </Routes>
     </div>
   );
