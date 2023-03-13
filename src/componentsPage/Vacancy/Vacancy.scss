@@ -23,13 +23,13 @@
             }
 
             .btn-otclick {
-                & a:hover {
-                    color: white;
-                }
-
                 a {
                     color: #4bb24e;
                     text-decoration: none;
+                }
+
+                &:hover a {
+                    color: white;
                 }
             }
         }
