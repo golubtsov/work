@@ -47,7 +47,7 @@ function WayWork() {
                         <div className="container">
                             <div className="blc-img-work sisadmin"></div>
                             <div className="blc-link-way">
-                                <Link to="/works" className="link-way">Разработка игр</Link>
+                                <Link to="/works" className="link-way">Администрирование</Link>
                             </div>
                         </div>
                     </div>
@@ -55,7 +55,7 @@ function WayWork() {
                         <div className="container">
                             <div className="blc-img-work security"></div>
                             <div className="blc-link-way">
-                                <Link to="/works" className="link-way">Разработка игр</Link>
+                                <Link to="/works" className="link-way">Информационная безопасность</Link>
                             </div>
                         </div>
                     </div>
@@ -63,7 +63,7 @@ function WayWork() {
                         <div className="container">
                             <div className="blc-img-work marketer"></div>
                             <div className="blc-link-way">
-                                <Link to="/works" className="link-way">Разработка игр</Link>
+                                <Link to="/works" className="link-way">Маркетинг</Link>
                             </div>
                         </div>
                     </div>
@@ -71,7 +71,7 @@ function WayWork() {
                         <div className="container">
                             <div className="blc-img-work analyst"></div>
                             <div className="blc-link-way">
-                                <Link to="/works" className="link-way">Разработка игр</Link>
+                                <Link to="/works" className="link-way">Аналитика</Link>
                             </div>
                         </div>
                     </div>

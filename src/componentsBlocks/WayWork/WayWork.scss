@@ -87,15 +87,20 @@ $transition: all 0.3s ease-in;
 
                     .blc-link-way {
                         width: 90%;
-                        text-align: center;
+                        height: 45px;
                         margin: 20px auto;
                         background-color: $background;
                         padding: 8px;
                         font-size: 24px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
 
                         .link-way {
+                            width: 100%;
                             color: white;
                             text-decoration: none;
+                            text-align: center;
                         }
                     }
                 }
