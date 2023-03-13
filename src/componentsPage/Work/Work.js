@@ -11,7 +11,36 @@ function Work() {
                 <div className="container">
                     <div id="web-developer" className="elem-work">
                         <div className="item-name">
-                            <h2 className="name">Web-разработка</h2>
+                            <p className="name">Web-разработка</p>
+                            <span className="icon"><ion-icon name="arrow-down-outline"></ion-icon></span>
+                        </div>
+                        <div className="item-text">
+                            <ul className="list-prof">
+                                <li className="link-prof">Frontend-разработчик</li>
+                                <li className="link-prof">Backend-разработчик</li>
+                                <li className="link-prof">Мобильный разработчик</li>
+                                <li className="link-prof">Fullstack-разработчик</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="web-developer" className="elem-work">
+                        <div className="item-name">
+                            <p className="name">Web-разработка</p>
+                            <span className="icon"><ion-icon name="arrow-down-outline"></ion-icon></span>
+                        </div>
+                        <div className="item-text">
+                            <ul className="list-prof">
+                                <li className="link-prof">Frontend-разработчик</li>
+                                <li className="link-prof">Backend-разработчик</li>
+                                <li className="link-prof">Мобильный разработчик</li>
+                                <li className="link-prof">Fullstack-разработчик</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="web-developer" className="elem-work">
+                        <div className="item-name">
+                            <p className="name">Web-разработка</p>
+                            <span className="icon"><ion-icon name="arrow-down-outline"></ion-icon></span>
                         </div>
                         <div className="item-text">
                             <ul className="list-prof">
