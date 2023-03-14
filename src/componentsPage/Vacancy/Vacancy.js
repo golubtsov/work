@@ -57,7 +57,6 @@ function Vacancy() {
     }
 
     function checkAddressRaw(address) {
-        console.log(address)
         if (address === 'Не укахано' || address == null) {
             return '';
         }
@@ -86,7 +85,6 @@ function Vacancy() {
         if (!CheckLogo.prototype.checkLogo(info.employer.logo_urls)) {
             setSrc(info.employer.logo_urls['240']);
         }
-        console.log(bigVacancy)
     }
 
     return (

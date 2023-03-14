@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import Footer from "../../componentsBlocks/Footer/Footer";
 
 import './Work.scss';
@@ -9,7 +10,7 @@ function Work() {
 
     const refs = [];
 
-    listWorks.map(el => {
+    listWorks.map(() => {
         let itemRef = React.createRef();
         refs.push(itemRef);
     });
@@ -19,11 +20,10 @@ function Work() {
     const checkActive = (event, el) => {
         if (event.target.tagName === 'ION-ICON') {
             let elRefs = refs[event.target.id].current;
-            // if (elRefs.classList.contains('active')) {
-            // closeInfoProfessions();
-            // } else {
-            // setTimeout(() => getInfoProfessions(elRefs), 500);
-            // }
+            if (elRefs.classList.contains('active')) {
+                closeInfoProfessions();
+                return;
+            }
             getInfoProfessions(elRefs)
         }
     }
@@ -31,7 +31,6 @@ function Work() {
     const getInfoProfessions = (el) => {
         closeInfoProfessions();
         el.classList.add('active');
-        // el.style.display = 'block';
         el.style.height = el.scrollHeight + 'px';
         el.style.opacity = 1;
     }
@@ -41,9 +40,6 @@ function Work() {
             el.current.classList.remove('active');
             el.current.style.opacity = 0;
             el.current.style.height = 0;
-            setTimeout(() => {
-                // el.current.style.display = 'none';
-            }, 400);
         });
     }
 
@@ -52,6 +48,9 @@ function Work() {
         <>
             <div className="blc-work">
                 <div className="container">
+                    <div className="title">
+                        <h1 className="text-title">Выбири свое направление</h1>
+                    </div>
                     {
                         listWorks.map((el, index) => (
                             <div id={`${el.id}`} key={index} className="elem-work">
@@ -62,7 +61,7 @@ function Work() {
                                 <div className="item-text" ref={refs[index]}>
                                     <ul className="list-prof">
                                         {el.works.map((el, index) => (
-                                            <li key={index} className="link-prof">{el[0]} - {el[1]}</li>
+                                            <li key={index} className="link-prof"><b><Link style={{ color: '#333' }} to={`/vacancies?text=${el[0]}`}>{el[0]}</Link></b> - {el[1]}</li>
                                         ))}
                                     </ul>
                                 </div>
