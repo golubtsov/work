@@ -30,6 +30,11 @@
                 align-items: center;
                 border-radius: 10px;
                 box-shadow: 0 0 5px #999999;
+                transition: all 0.3s ease-in;
+
+                &:hover {
+                    background: linear-gradient(90deg, #c61bff, #c308ed, #d600da);
+                }
 
                 .name {
                     width: 100%;
