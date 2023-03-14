@@ -10,10 +10,9 @@ function Vacancies() {
 
     const dispath = useDispatch();
     const intText = React.createRef();
-    let page = useSelector((state) => state.toolkit.page);
     let query = useSelector((state) => state.toolkit.query);
 
-    useEffect(() => { }, [query, page]);
+    useEffect(() => { }, [query]);
 
     function getQueryPoisk() {
         let poisk = intText.current.value;
@@ -41,7 +40,7 @@ function Vacancies() {
                 </div>
             </div>
             <>
-                <BlcVacansies paramPoisk={{ "text": query, "page": page }} />
+                <BlcVacansies />
             </>
             <Footer />
         </div>

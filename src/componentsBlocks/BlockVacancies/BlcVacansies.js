@@ -7,7 +7,7 @@ import ChechNull from "../../classes/CheckNull";
 import Vacancy from "../../classes/Vacancy";
 import CardVacancy from "../CardVacancy/CardVacancy";
 import Pagination from "../Pagination/Pagination";
-import { pagesLength } from "../../redux/reducer";
+import { newQuery, pagesLength } from "../../redux/reducer";
 
 function BlcVacansies() {
 
@@ -30,7 +30,7 @@ function BlcVacansies() {
                     }
                 }
             })
-    }, [query]);
+    }, [query, page]);
 
     function createClassVacancy(el) {
         let vacancy = new Vacancy(

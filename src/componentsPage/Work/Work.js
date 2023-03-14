@@ -1,5 +1,7 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { newQuery } from "../../redux/reducer";
 import Footer from "../../componentsBlocks/Footer/Footer";
 
 import './Work.scss';
@@ -9,6 +11,8 @@ const listWorks = require('./list-works/list-works.json');
 function Work() {
 
     const refs = [];
+    const dispath = useDispatch();
+    let query = useSelector((state) => state.toolkit.query);
 
     listWorks.map(() => {
         let itemRef = React.createRef();
@@ -31,6 +35,7 @@ function Work() {
     const getInfoProfessions = (el) => {
         closeInfoProfessions();
         el.classList.add('active');
+        el.style.display = 'block';
         el.style.height = el.scrollHeight + 'px';
         el.style.opacity = 1;
     }
@@ -41,6 +46,10 @@ function Work() {
             el.current.style.opacity = 0;
             el.current.style.height = 0;
         });
+    }
+
+    const sendNewQuerySearch = (event) => {
+        dispath(newQuery(event.target.innerHTML));
     }
 
 
@@ -61,7 +70,7 @@ function Work() {
                                 <div className="item-text" ref={refs[index]}>
                                     <ul className="list-prof">
                                         {el.works.map((el, index) => (
-                                            <li key={index} className="link-prof"><b><Link style={{ color: '#333' }} to={`/vacancies?text=${el[0]}`}>{el[0]}</Link></b> - {el[1]}</li>
+                                            <li key={index} className="link-prof"><b><Link onClick={sendNewQuerySearch} to="/vacancies" style={{ color: '#333' }}>{el[0]}</Link></b> - {el[1]}</li>
                                         ))}
                                     </ul>
                                 </div>
